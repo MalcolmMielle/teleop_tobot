@@ -175,6 +175,8 @@ if __name__=="__main__":
 				pub.publish(twist)
 			else:
 				lift.execute()
+				x=0
+				th=0
 
 	except Exception, e:
 		print e

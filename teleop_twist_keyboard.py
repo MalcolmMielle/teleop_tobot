@@ -109,7 +109,7 @@ moveBindings = {
 		',':(-1,0),
 		'.':(-1,1),
 		'm':(-1,-1),
-		'q':(4,4),
+		'v':(1000,4),
 	       }
 
 speedBindings={
@@ -168,13 +168,15 @@ if __name__=="__main__":
 				if (key == '\x03'):
 					break
 
-			if x !=4:
+			if x !=1000:
 				twist = Twist()
 				twist.linear.x = x*speed; twist.linear.y = 0; twist.linear.z = 0
 				twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = th*turn
 				pub.publish(twist)
 			else:
 				lift.execute()
+				x=0
+				th=0
 
 	except Exception, e:
 		print e
